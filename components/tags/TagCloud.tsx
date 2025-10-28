@@ -27,13 +27,17 @@ export default function TagCloud({ tags, colors }: TagCloudProps) {
             }}
           >
             {/* Gradient overlay on hover */}
-            <div className={`absolute inset-0 bg-gradient-to-r ${gradientClass} opacity-0 group-hover:opacity-100 transition-all duration-300`} />
+            <div
+              className={`absolute inset-0 bg-gradient-to-r ${gradientClass} opacity-0 group-hover:opacity-100 transition-all duration-300`}
+            />
 
             {/* Animated shine effect */}
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
 
             {/* Icon */}
-            <div className={`relative w-6 h-6 rounded-lg bg-gradient-to-br ${gradientClass} flex items-center justify-center group-hover:rotate-12 transition-transform duration-300`}>
+            <div
+              className={`relative w-6 h-6 rounded-lg bg-gradient-to-br ${gradientClass} flex items-center justify-center group-hover:rotate-12 transition-transform duration-300`}
+            >
               <IconTag size={14} className="text-white" />
             </div>
 
@@ -62,4 +66,3 @@ export default function TagCloud({ tags, colors }: TagCloudProps) {
     </div>
   );
 }
-

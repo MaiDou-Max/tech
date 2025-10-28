@@ -11,10 +11,14 @@ export default function HeroSection() {
       <div className="absolute bottom-0 left-1/2 w-72 h-72 bg-[var(--color-primary)] opacity-10 rounded-full blur-3xl animate-blob animation-delay-4000" />
 
       {/* Decorative grid pattern */}
-      <div className="absolute inset-0 opacity-5" style={{
-        backgroundImage: 'radial-gradient(circle at 1px 1px, var(--color-primary) 1px, transparent 0)',
-        backgroundSize: '40px 40px'
-      }} />
+      <div
+        className="absolute inset-0 opacity-5"
+        style={{
+          backgroundImage:
+            'radial-gradient(circle at 1px 1px, var(--color-primary) 1px, transparent 0)',
+          backgroundSize: '40px 40px',
+        }}
+      />
 
       <div className="relative z-10 animate-fade-in max-w-5xl mx-auto">
         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--code-inline-bg)] border border-[var(--color-border)] mb-6 animate-slide-down backdrop-blur-sm">
@@ -43,7 +47,10 @@ export default function HeroSection() {
           >
             <span className="flex items-center gap-2">
               浏览文章
-              <IconTrendingUp size={20} className="group-hover:translate-x-1 transition-transform" />
+              <IconTrendingUp
+                size={20}
+                className="group-hover:translate-x-1 transition-transform"
+              />
             </span>
           </a>
           <a
@@ -57,4 +64,3 @@ export default function HeroSection() {
     </section>
   );
 }
-

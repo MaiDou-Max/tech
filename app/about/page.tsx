@@ -16,8 +16,9 @@ export default function About() {
         <article className="bg-[var(--color-card-bg)] border border-[var(--color-border)] rounded-2xl p-8 md:p-12 shadow-lg mb-8">
           <div className="prose prose-lg max-w-none">
             <p className="text-lg text-[var(--color-text-muted)] leading-relaxed mb-8">
-              你好！我是<strong className="text-[var(--color-text)]">钟宝</strong>，一名专注于前端开发和用户体验设计的工程师。
-              我热爱创造美观、高效且易用的 Web 应用程序。
+              你好！我是<strong className="text-[var(--color-text)]">钟宝</strong>
+              ，一名专注于前端开发和用户体验设计的工程师。 我热爱创造美观、高效且易用的 Web
+              应用程序。
             </p>
 
             <h2 className="text-2xl font-bold text-[var(--color-text)] mb-6 mt-12">技术栈</h2>

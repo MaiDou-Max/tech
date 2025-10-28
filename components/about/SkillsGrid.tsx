@@ -7,23 +7,23 @@ export default function SkillsGrid() {
     {
       icon: IconBrandReact,
       title: 'React & Next.js',
-      description: '构建现代化的 Web 应用'
+      description: '构建现代化的 Web 应用',
     },
     {
       icon: IconBrandTypescript,
       title: 'TypeScript',
-      description: '类型安全的开发体验'
+      description: '类型安全的开发体验',
     },
     {
       icon: IconCode,
       title: 'UI/UX 设计',
-      description: '注重用户体验的界面设计'
+      description: '注重用户体验的界面设计',
     },
     {
       icon: IconRocket,
       title: '性能优化',
-      description: '追求极致的加载速度'
-    }
+      description: '追求极致的加载速度',
+    },
   ];
 
   return (
@@ -47,4 +47,3 @@ export default function SkillsGrid() {
     </div>
   );
 }
-

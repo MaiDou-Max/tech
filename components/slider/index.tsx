@@ -64,9 +64,15 @@ function Slider() {
         <div className="flex flex-col items-center mb-8 animate-slide-down">
           <div className="relative mb-4 group/avatar">
             {/* Rotating border */}
-            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-secondary)] animate-spin-slow opacity-75 blur-sm" style={{ animationDuration: '3s' }} />
+            <div
+              className="absolute inset-0 rounded-full bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-secondary)] animate-spin-slow opacity-75 blur-sm"
+              style={{ animationDuration: '3s' }}
+            />
 
-            <Avatar className="relative cursor-pointer w-20 h-20 ring-4 ring-[var(--color-card-bg)] hover:scale-110 transition-all duration-300" onClick={goHome}>
+            <Avatar
+              className="relative cursor-pointer w-20 h-20 ring-4 ring-[var(--color-card-bg)] hover:scale-110 transition-all duration-300"
+              onClick={goHome}
+            >
               <AvatarImage src="https://github.com/shadcn.png" />
               <AvatarFallback className="bg-gradient-to-br from-[var(--color-primary)] to-[var(--color-secondary)] text-white font-bold">
                 钟宝
@@ -77,11 +83,12 @@ function Slider() {
             <div className="absolute bottom-1 right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-[var(--color-card-bg)] animate-pulse" />
           </div>
 
-          <h3 ref={textRef} className="block text-lg font-bold text-[var(--color-text)] h-7 mb-2 whitespace-nowrap" />
+          <h3
+            ref={textRef}
+            className="block text-lg font-bold text-[var(--color-text)] h-7 mb-2 whitespace-nowrap"
+          />
 
-          <p className="text-sm text-[var(--color-text-muted)] text-center mb-4">
-            🚀 探索代码之美
-          </p>
+          <p className="text-sm text-[var(--color-text-muted)] text-center mb-4">🚀 探索代码之美</p>
 
           {/* Stats */}
           <div className="flex gap-4 w-full justify-center">
@@ -112,7 +119,9 @@ function Slider() {
                 <IconSparkles size={16} className="text-white" />
               </div>
               <div className="flex-1">
-                <div className="text-xs font-semibold text-[var(--color-primary)] mb-1">欢迎访问</div>
+                <div className="text-xs font-semibold text-[var(--color-primary)] mb-1">
+                  欢迎访问
+                </div>
                 <p className="text-xs text-[var(--color-text-muted)] leading-relaxed">
                   寒月悲笳，万里西风瀚海沙。喜欢的话欢迎交流～
                 </p>

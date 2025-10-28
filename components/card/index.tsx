@@ -16,28 +16,40 @@ const patterns = [
   <svg key="wave" className="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg">
     <defs>
       <pattern id="wave" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
-        <path d="M0 50 Q 25 25, 50 50 T 100 50" fill="none" stroke="currentColor" strokeWidth="0.5" opacity="0.1"/>
+        <path
+          d="M0 50 Q 25 25, 50 50 T 100 50"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="0.5"
+          opacity="0.1"
+        />
       </pattern>
     </defs>
-    <rect width="100%" height="100%" fill="url(#wave)"/>
+    <rect width="100%" height="100%" fill="url(#wave)" />
   </svg>,
   // 圆点图案
   <svg key="dots" className="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg">
     <defs>
       <pattern id="dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-        <circle cx="2" cy="2" r="1" fill="currentColor" opacity="0.1"/>
+        <circle cx="2" cy="2" r="1" fill="currentColor" opacity="0.1" />
       </pattern>
     </defs>
-    <rect width="100%" height="100%" fill="url(#dots)"/>
+    <rect width="100%" height="100%" fill="url(#dots)" />
   </svg>,
   // 网格图案
   <svg key="grid" className="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg">
     <defs>
       <pattern id="grid" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
-        <path d="M 30 0 L 0 0 0 30" fill="none" stroke="currentColor" strokeWidth="0.5" opacity="0.1"/>
+        <path
+          d="M 30 0 L 0 0 0 30"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="0.5"
+          opacity="0.1"
+        />
       </pattern>
     </defs>
-    <rect width="100%" height="100%" fill="url(#grid)"/>
+    <rect width="100%" height="100%" fill="url(#grid)" />
   </svg>,
 ];
 
@@ -52,9 +64,7 @@ function Card(props: CardProps) {
           {/* Image placeholder with pattern */}
           <div className="relative aspect-[16/9] overflow-hidden bg-gradient-to-br from-[var(--color-primary)]/10 to-[var(--color-secondary)]/10">
             {/* Pattern overlay */}
-            <div className="text-[var(--color-primary)]">
-              {patterns[patternIndex]}
-            </div>
+            <div className="text-[var(--color-primary)]">{patterns[patternIndex]}</div>
 
             {/* Animated gradient mesh */}
             <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-primary)]/20 via-transparent to-[var(--color-secondary)]/20 animate-gradient-shift" />
@@ -68,7 +78,9 @@ function Card(props: CardProps) {
 
             {/* Category badge */}
             <div className="absolute top-4 left-4 px-3 py-1.5 rounded-full bg-[var(--color-card-bg)]/90 backdrop-blur-sm border border-[var(--color-border)] shadow-lg">
-              <span className="text-xs font-semibold text-[var(--code-inline-color)]">{category}</span>
+              <span className="text-xs font-semibold text-[var(--code-inline-color)]">
+                {category}
+              </span>
             </div>
 
             {/* Hover icon */}
@@ -121,9 +133,7 @@ function Card(props: CardProps) {
         {/* Image preview for list view */}
         <div className="relative w-full md:w-48 aspect-[16/10] md:aspect-square rounded-xl overflow-hidden bg-gradient-to-br from-[var(--color-primary)]/10 to-[var(--color-secondary)]/10 mb-4 md:mb-0 flex-shrink-0">
           {/* Pattern */}
-          <div className="text-[var(--color-primary)]">
-            {patterns[patternIndex]}
-          </div>
+          <div className="text-[var(--color-primary)]">{patterns[patternIndex]}</div>
 
           {/* Animated gradient */}
           <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-primary)]/20 via-transparent to-[var(--color-secondary)]/20 animate-gradient-shift" />
@@ -151,7 +161,7 @@ function Card(props: CardProps) {
                 {new Date(date).toLocaleDateString('zh-CN', {
                   year: 'numeric',
                   month: 'long',
-                  day: 'numeric'
+                  day: 'numeric',
                 })}
               </time>
             </div>

@@ -28,13 +28,29 @@ function FeaturedCard(props: FeaturedCardProps) {
               <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-primary)]/30 via-[var(--color-secondary)]/30 to-[var(--color-primary)]/30 animate-gradient-shift" />
 
               {/* Geometric patterns */}
-              <svg className="absolute inset-0 w-full h-full opacity-20" xmlns="http://www.w3.org/2000/svg">
+              <svg
+                className="absolute inset-0 w-full h-full opacity-20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
                 <defs>
-                  <pattern id="featured-grid" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
-                    <circle cx="20" cy="20" r="1" fill="currentColor" className="text-[var(--color-primary)]"/>
+                  <pattern
+                    id="featured-grid"
+                    x="0"
+                    y="0"
+                    width="40"
+                    height="40"
+                    patternUnits="userSpaceOnUse"
+                  >
+                    <circle
+                      cx="20"
+                      cy="20"
+                      r="1"
+                      fill="currentColor"
+                      className="text-[var(--color-primary)]"
+                    />
                   </pattern>
                 </defs>
-                <rect width="100%" height="100%" fill="url(#featured-grid)"/>
+                <rect width="100%" height="100%" fill="url(#featured-grid)" />
               </svg>
 
               {/* Floating orbs */}
@@ -54,7 +70,10 @@ function FeaturedCard(props: FeaturedCardProps) {
 
                 {/* Icon container */}
                 <div className="relative w-24 h-24 rounded-full bg-[var(--color-card-bg)]/80 backdrop-blur-sm flex items-center justify-center group-hover:scale-110 transition-transform duration-500 border border-[var(--color-border)]/50">
-                  <IconArrowRight size={40} className="text-[var(--color-primary)] group-hover:translate-x-2 transition-transform duration-300" />
+                  <IconArrowRight
+                    size={40}
+                    className="text-[var(--color-primary)] group-hover:translate-x-2 transition-transform duration-300"
+                  />
                 </div>
               </div>
             </div>
@@ -92,7 +111,7 @@ function FeaturedCard(props: FeaturedCardProps) {
                   {new Date(date).toLocaleDateString('zh-CN', {
                     year: 'numeric',
                     month: 'long',
-                    day: 'numeric'
+                    day: 'numeric',
                   })}
                 </time>
               </div>
@@ -105,7 +124,10 @@ function FeaturedCard(props: FeaturedCardProps) {
 
             <div className="inline-flex items-center gap-2 text-[var(--color-primary)] font-semibold group-hover:gap-4 transition-all duration-300">
               <span>阅读全文</span>
-              <IconArrowRight size={20} className="group-hover:translate-x-1 transition-transform duration-300" />
+              <IconArrowRight
+                size={20}
+                className="group-hover:translate-x-1 transition-transform duration-300"
+              />
             </div>
           </div>
         </div>
@@ -115,5 +137,3 @@ function FeaturedCard(props: FeaturedCardProps) {
 }
 
 export default FeaturedCard;
-
-

@@ -41,7 +41,10 @@ export default function Header() {
                 href={tab.value}
                 className="group flex items-center gap-2 px-3 md:px-4 py-2 rounded-lg text-[var(--color-text-muted)] hover:text-[var(--color-primary)] hover:bg-[var(--code-inline-bg)] transition-all duration-200 font-medium"
               >
-                <Icon size={18} className="group-hover:scale-110 transition-transform duration-200" />
+                <Icon
+                  size={18}
+                  className="group-hover:scale-110 transition-transform duration-200"
+                />
                 <span className="hidden md:inline">{tab.label}</span>
               </Link>
             );
@@ -52,5 +55,3 @@ export default function Header() {
     </header>
   );
 }
-
-

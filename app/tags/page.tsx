@@ -1,6 +1,4 @@
 import { getAllTags } from '@/lib/posts';
-import Header from '@/components/header';
-import Footer from '@/components/footer';
 import TagsHero from '@/components/tags/TagsHero';
 import TagCloud from '@/components/tags/TagCloud';
 
@@ -39,7 +37,9 @@ export default function TagsPage() {
             {/* Stats */}
             <div className="relative mt-12 pt-8 border-t border-[var(--color-border)] text-center">
               <p className="text-[var(--color-text-muted)] text-sm">
-                共 <span className="font-bold text-[var(--color-primary)] text-lg">{tags.length}</span> 个标签
+                共{' '}
+                <span className="font-bold text-[var(--color-primary)] text-lg">{tags.length}</span>{' '}
+                个标签
               </p>
             </div>
           </div>

@@ -17,7 +17,10 @@ export default function CategoryHero() {
         </div>
 
         <h1 className="text-4xl md:text-6xl font-bold text-[var(--color-text)] mb-6 leading-tight">
-          文章<span className="bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-secondary)] bg-clip-text text-transparent">分类</span>
+          文章
+          <span className="bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-secondary)] bg-clip-text text-transparent">
+            分类
+          </span>
         </h1>
         <p className="text-xl md:text-2xl text-[var(--color-text-muted)] max-w-2xl mx-auto leading-relaxed">
           按主题浏览所有文章，发现你感兴趣的内容
@@ -26,4 +29,3 @@ export default function CategoryHero() {
     </section>
   );
 }
-

@@ -48,7 +48,7 @@ function RootLayout({ children }: { children: React.ReactNode }) {
             <aside className="m-2">
               <PhysicsDrop></PhysicsDrop>
             </aside>
-          <ScrollToTop />
+            <ScrollToTop />
           </div>
         </ThemeProvider>
       </body>

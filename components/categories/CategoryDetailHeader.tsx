@@ -17,7 +17,10 @@ export default function CategoryDetailHeader({ category, totalPosts }: CategoryD
           href="/categories"
           className="inline-flex items-center gap-2 text-[var(--color-text-muted)] hover:text-[var(--color-primary)] transition-colors duration-200 group"
         >
-          <IconArrowLeft size={20} className="group-hover:-translate-x-1 transition-transform duration-200" />
+          <IconArrowLeft
+            size={20}
+            className="group-hover:-translate-x-1 transition-transform duration-200"
+          />
           <span className="font-medium">所有分类</span>
         </Link>
       </div>
@@ -37,4 +40,3 @@ export default function CategoryDetailHeader({ category, totalPosts }: CategoryD
     </>
   );
 }
-

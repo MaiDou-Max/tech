@@ -1,7 +1,4 @@
-import Link from 'next/link';
 import { getAllCategories } from '@/lib/posts';
-import Header from '@/components/header';
-import Footer from '@/components/footer';
 import CategoryHero from '@/components/categories/CategoryHero';
 import CategoryCard from '@/components/categories/CategoryCard';
 
@@ -35,7 +32,8 @@ export default function Categories() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {categories.map((category, index) => {
             const key = category.toLowerCase();
-            const gradientClass = CATEGORY_COLORS[key as keyof typeof CATEGORY_COLORS] || CATEGORY_COLORS.default;
+            const gradientClass =
+              CATEGORY_COLORS[key as keyof typeof CATEGORY_COLORS] || CATEGORY_COLORS.default;
 
             return (
               <CategoryCard
