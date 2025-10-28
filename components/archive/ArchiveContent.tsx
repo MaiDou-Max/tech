@@ -70,76 +70,137 @@ export default function ArchiveContent({ posts, categories, tags }: ArchiveConte
       <div className="flex-1 space-y-12">
         <ArchiveFilters categories={categories} tags={tags} onFilterChange={handleFilterChange} />
 
-        <div className="flex flex-wrap items-center gap-4 text-xs md:text-sm text-[var(--color-text-muted)] bg-[var(--code-inline-bg)] border border-[var(--color-border)] rounded-xl px-4 py-3">
-          <span>
-            共 <strong className="text-[var(--color-primary)]">{posts.length}</strong> 篇文章
-          </span>
-          <span className="w-1 h-1 rounded-full bg-[var(--color-border)]" />
-          <span>
-            筛选后 <strong className="text-[var(--color-primary)]">{filtered.length}</strong> 篇
-          </span>
-          {filters.query && (
-            <span className="truncate max-w-[12rem]">关键词: &quot;{filters.query}&quot;</span>
-          )}
-          {filters.category !== '全部' && <span>分类: {filters.category}</span>}
-          {filters.tag !== '全部' && <span>标签: {filters.tag}</span>}
-          {anyActiveFilter && (
-            <button
-              type="button"
-              onClick={resetFilters}
-              className="ml-auto text-[var(--color-primary)] hover:underline"
-              aria-label="重置筛选"
-            >
-              重置
-            </button>
-          )}
+        <div className="volantis-card px-4 py-3 text-xs md:text-sm text-[var(--color-text-muted)] animate-fade-in animation-delay-200">
+          <div className="flex flex-wrap items-center gap-3">
+            <span className="flex items-center gap-1">
+              共{' '}
+              <strong className="text-[var(--color-primary)] font-bold mx-1">{posts.length}</strong>{' '}
+              篇文章
+            </span>
+            <span className="w-1 h-1 rounded-full bg-[var(--color-border)]" />
+            <span className="flex items-center gap-1">
+              筛选后{' '}
+              <strong className="text-[var(--color-primary)] font-bold mx-1">
+                {filtered.length}
+              </strong>{' '}
+              篇
+            </span>
+            {filters.query && (
+              <>
+                <span className="w-1 h-1 rounded-full bg-[var(--color-border)]" />
+                <span className="truncate max-w-[12rem]">关键词: &quot;{filters.query}&quot;</span>
+              </>
+            )}
+            {filters.category !== '全部' && (
+              <>
+                <span className="w-1 h-1 rounded-full bg-[var(--color-border)]" />
+                <span className="px-2 py-1 rounded-full bg-[var(--color-primary)]/10 text-[var(--color-primary)] text-xs">
+                  {filters.category}
+                </span>
+              </>
+            )}
+            {filters.tag !== '全部' && (
+              <>
+                <span className="w-1 h-1 rounded-full bg-[var(--color-border)]" />
+                <span className="px-2 py-1 rounded-full bg-[var(--color-secondary)]/10 text-[var(--color-secondary)] text-xs">
+                  {filters.tag}
+                </span>
+              </>
+            )}
+            {anyActiveFilter && (
+              <button
+                type="button"
+                onClick={resetFilters}
+                className="ml-auto px-3 py-1 rounded-lg text-[var(--color-primary)] hover:bg-[var(--color-primary)]/10 transition-colors duration-300 font-medium"
+                aria-label="重置筛选"
+              >
+                重置
+              </button>
+            )}
+          </div>
         </div>
 
         {years.length === 0 && (
-          <div className="text-center py-16 border border-dashed border-[var(--color-border)] rounded-2xl">
-            <p className="text-[var(--color-text-muted)]">没有匹配的文章，尝试调整筛选条件。</p>
+          <div className="volantis-card text-center py-16">
+            <div className="text-6xl mb-4">📭</div>
+            <p className="text-lg text-[var(--color-text-muted)] mb-2">没有匹配的文章</p>
+            <p className="text-sm text-[var(--color-text-lighter)]">尝试调整筛选条件</p>
           </div>
         )}
 
-        {years.map(year => {
+        {years.map((year, yearIdx) => {
           const yearTotal = Object.values(groupedFiltered[year] || {}).reduce(
             (a, b) => a + b.length,
             0
           );
           return (
-            <section key={year} id={`year-${year}`} className="space-y-8">
-              <h2 className="text-3xl font-bold flex items-center gap-3">
-                <span className="bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-secondary)] bg-clip-text text-transparent">
-                  {year}
-                </span>
-                <span className="text-xs px-2 py-1 rounded-full bg-[var(--code-inline-bg)] text-[var(--code-inline-color)]">
-                  {yearTotal} 篇
-                </span>
-              </h2>
+            <section
+              key={year}
+              id={`year-${year}`}
+              className="space-y-8 animate-fade-in"
+              style={{ animationDelay: `${yearIdx * 100}ms` }}
+            >
+              {/* Year header with Volantis style */}
+              <div className="flex items-center gap-4">
+                <div className="relative">
+                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[var(--color-primary)] to-[var(--color-secondary)] flex items-center justify-center shadow-lg">
+                    <span className="text-white font-bold text-xl">{year.slice(2)}</span>
+                  </div>
+                  <div className="absolute -bottom-1 -right-1 w-6 h-6 rounded-lg bg-[var(--color-card-bg)] border-2 border-[var(--color-primary)] flex items-center justify-center text-xs font-bold text-[var(--color-primary)]">
+                    {yearTotal}
+                  </div>
+                </div>
+                <div>
+                  <h2 className="text-3xl md:text-4xl font-bold text-[var(--color-text)]">
+                    {year}
+                  </h2>
+                  <p className="text-sm text-[var(--color-text-muted)]">共 {yearTotal} 篇文章</p>
+                </div>
+              </div>
+
               {Object.keys(groupedFiltered[year] || {})
                 .sort((a, b) => Number(b) - Number(a))
-                .map(month => (
-                  <div key={month} id={`${year}-${month}`} className="space-y-4">
-                    <div className="flex items-center gap-3">
-                      <div className="w-1.5 h-6 rounded-full bg-gradient-to-b from-[var(--color-primary)] to-[var(--color-secondary)]" />
-                      <h3 className="text-xl font-semibold">
-                        {month} 月{' '}
-                        <span className="text-sm text-[var(--color-text-muted)]">
-                          ({groupedFiltered[year][month].length})
-                        </span>
-                      </h3>
+                .map((month, monthIdx) => (
+                  <div
+                    key={month}
+                    id={`${year}-${month}`}
+                    className="space-y-4 animate-slide-in-left"
+                    style={{ animationDelay: `${yearIdx * 100 + monthIdx * 50}ms` }}
+                  >
+                    {/* Month header with timeline style */}
+                    <div className="flex items-center gap-3 mb-6">
+                      <div className="flex items-center gap-2">
+                        <div className="w-1 h-8 rounded-full bg-gradient-to-b from-[var(--color-primary)] to-[var(--color-secondary)]" />
+                        <h3 className="text-xl md:text-2xl font-bold text-[var(--color-text)]">
+                          {month} 月
+                        </h3>
+                      </div>
+                      <div className="px-3 py-1 rounded-full bg-[var(--color-border-light)] text-xs font-medium text-[var(--color-text-muted)]">
+                        {groupedFiltered[year][month].length} 篇
+                      </div>
+                      <div className="flex-1 h-px bg-gradient-to-r from-[var(--color-border)] to-transparent" />
                     </div>
+
+                    {/* Posts grid */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      {groupedFiltered[year][month].map(post => (
-                        <Card
+                      {groupedFiltered[year][month].map((post, postIdx) => (
+                        <div
                           key={post.id}
-                          id={post.id}
-                          title={post.title}
-                          description={post.description}
-                          category={post.category}
-                          date={post.date}
-                          variant="grid"
-                        />
+                          className="animate-scale-in"
+                          style={{
+                            animationDelay: `${yearIdx * 100 + monthIdx * 50 + postIdx * 30}ms`,
+                          }}
+                        >
+                          <Card
+                            id={post.id}
+                            title={post.title}
+                            description={post.description}
+                            category={post.category}
+                            date={post.date}
+                            tags={post.tags}
+                            variant="grid"
+                          />
+                        </div>
                       ))}
                     </div>
                   </div>

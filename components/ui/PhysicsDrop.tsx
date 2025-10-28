@@ -131,11 +131,10 @@ const PhysicsDrop: React.FC = () => {
         if (cancelled) break;
         const icon = shuffledIcons[i];
         const x = (Math.floor(Math.random() * 3) + 1) * (worldWidth / 4);
-        const y = iconRadius;
         const body = new p2.Body({
           mass: 1,
-          position: [x, y],
-          angularVelocity: (Math.random() - 0.5) * 1,
+          position: [x, iconRadius],
+          angularVelocity: Math.random() - 0.5,
           allowSleep: true,
           sleepSpeedLimit: 0.05,
           sleepTimeLimit: 0.3,
@@ -192,68 +191,85 @@ const PhysicsDrop: React.FC = () => {
   }
 
   return (
-    <div className="flex flex-col relative rounded-3xl">
-      <div
-        onClick={() => {
-          setResetKey(prev => prev + 1);
-        }}
-        className="absolute top-4 border border-[rgb(229, 231, 235)] p-1 rounded-lg left-4 z-20"
-      >
-        <IconRefresh className="cursor-pointer w-[25px] h-[25px] hover:rotate-[180deg] duration-[500ms] transition-transform  ease-out"></IconRefresh>
-      </div>
-      <div
-        className="relative w-[278px] h-[590px] rounded-3xl overflow-hidden"
-        style={{
-          border: '1px solid #eee',
-        }}
-      >
-        {/* 固钉可视化 */}
-        {pinGrid.map((row, rowIdx) =>
-          row.map(([x, y], colIdx) => (
-            <div
-              key={`peg-${rowIdx}-${colIdx}-${resetKey}`}
-              style={{
-                position: 'absolute',
-                width: pinRadius * 2 * scale,
-                height: pinRadius * 2 * scale,
-                left: x - pinRadius * scale,
-                top: y - pinRadius * scale,
-                background: '#e5e7eb',
-                borderRadius: '50%',
-                zIndex: 1,
-                border: '1px solid #ccc',
-              }}
+    <div className="h-full flex items-center justify-center volantis-card overflow-hidden">
+      {/* Fixed size container - no scrolling */}
+      <div className="relative flex-shrink-0" style={{ width: '278px', height: '590px' }}>
+        <div
+          className="absolute inset-0 overflow-hidden"
+          style={{
+            background: 'var(--color-background-secondary)',
+            backgroundImage: `
+              radial-gradient(circle at 30% 20%, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
+              radial-gradient(circle at 70% 80%, rgba(244, 114, 182, 0.08) 0%, transparent 50%)
+            `,
+          }}
+        >
+          {/* Refresh button positioned at top right of canvas */}
+          <button
+            onClick={() => {
+              setResetKey(prev => prev + 1);
+            }}
+            className="absolute top-3 right-3 z-20 p-2 rounded-xl backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300 group border"
+            style={{
+              backgroundColor: 'var(--color-card-bg)',
+              borderColor: 'var(--color-border)',
+            }}
+            aria-label="重置技术栈演示"
+            title="重置"
+          >
+            <IconRefresh
+              className="w-5 h-5 transition-all duration-500 group-hover:rotate-180"
+              style={{ color: 'var(--color-text-muted)' }}
             />
-          ))
-        )}
-        {/* 粒子（icon） */}
-        {bodies.map(body => {
-          const { left, top } = toPx(body.position[0] - iconRadius, body.position[1] + iconRadius);
-          return (
-            <div
-              key={body.id}
-              style={{
-                position: 'absolute',
-                width: iconSize,
-                height: iconSize,
-                left,
-                top,
-                transform: `rotate(${body.angle}rad)`,
-                pointerEvents: 'none',
-                userSelect: 'none',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                zIndex: 2,
-                background: '#fff',
-                borderRadius: '50%',
-                boxShadow: '0 2px 8px #0001',
-              }}
-            >
-              {body.icon}
-            </div>
-          );
-        })}
+          </button>
+          {/* 固钉可视化 */}
+          {pinGrid.map((row, rowIdx) =>
+            row.map(([x, y], colIdx) => (
+              <div
+                key={`peg-${rowIdx}-${colIdx}-${resetKey}`}
+                className="rounded-full"
+                style={{
+                  position: 'absolute',
+                  width: pinRadius * 2 * scale,
+                  height: pinRadius * 2 * scale,
+                  left: x - pinRadius * scale,
+                  top: y - pinRadius * scale,
+                  background: 'var(--color-border)',
+                  zIndex: 1,
+                }}
+              />
+            ))
+          )}
+          {/* 粒子（icon） */}
+          {bodies.map(body => {
+            const { left, top } = toPx(
+              body.position[0] - iconRadius,
+              body.position[1] + iconRadius
+            );
+            return (
+              <div
+                key={body.id}
+                className="rounded-full"
+                style={{
+                  position: 'absolute',
+                  width: iconSize,
+                  height: iconSize,
+                  left,
+                  top,
+                  transform: `rotate(${body.angle}rad)`,
+                  pointerEvents: 'none',
+                  userSelect: 'none',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  zIndex: 2,
+                }}
+              >
+                {body.icon}
+              </div>
+            );
+          })}
+        </div>
       </div>
     </div>
   );

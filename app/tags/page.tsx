@@ -1,4 +1,6 @@
 import { getAllTags } from '@/lib/posts';
+import Header from '@/components/header';
+import Footer from '@/components/footer';
 import TagsHero from '@/components/tags/TagsHero';
 import TagCloud from '@/components/tags/TagCloud';
 
@@ -17,16 +19,16 @@ export default function TagsPage() {
   const tags = getAllTags();
 
   return (
-    <main className="relative pt-2">
+    <>
       <TagsHero />
 
       {/* Tags Cloud with 3D effect */}
-      <section className="px-6 mb-16">
+      <section className="mb-12">
         <div className="relative max-w-5xl mx-auto">
-          {/* Background card */}
+          {/* Background glow */}
           <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-primary)]/5 to-[var(--color-secondary)]/5 rounded-3xl blur-3xl" />
 
-          <div className="relative bg-[var(--color-card-bg)] border border-[var(--color-border)] rounded-3xl p-8 md:p-12 shadow-2xl overflow-hidden">
+          <div className="volantis-card relative p-8 md:p-12 overflow-hidden">
             {/* Decorative corner gradients */}
             <div className="absolute top-0 right-0 w-48 h-48 bg-gradient-to-br from-[var(--color-primary)]/10 to-transparent rounded-bl-full" />
             <div className="absolute bottom-0 left-0 w-48 h-48 bg-gradient-to-tr from-[var(--color-secondary)]/10 to-transparent rounded-tr-full" />
@@ -45,6 +47,6 @@ export default function TagsPage() {
           </div>
         </div>
       </section>
-    </main>
+    </>
   );
 }

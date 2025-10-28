@@ -7,6 +7,7 @@ interface CardProps {
   description: string;
   category: string;
   date: string;
+  tags?: string[];
   variant?: 'list' | 'grid';
 }
 
@@ -59,7 +60,7 @@ function Card(props: CardProps) {
 
   if (variant === 'grid') {
     return (
-      <article className="group relative overflow-hidden bg-[var(--color-card-bg)] border border-[var(--color-border)] cursor-pointer rounded-2xl shadow-[0_2px_12px_var(--color-shadow)] hover:shadow-[0_8px_30px_var(--color-shadow)] transition-all duration-500 hover:-translate-y-2 h-full flex flex-col">
+      <article className="group relative overflow-hidden bg-white cursor-pointer rounded-3xl shadow-md hover:shadow-lg transition-all duration-500 hover:-translate-y-2 h-full flex flex-col">
         <Link href={`/posts/${id}`} className="flex flex-col h-full">
           {/* Image placeholder with pattern */}
           <div className="relative aspect-[16/9] overflow-hidden bg-gradient-to-br from-[var(--color-primary)]/10 to-[var(--color-secondary)]/10">
@@ -72,12 +73,8 @@ function Card(props: CardProps) {
             {/* Decorative shapes */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-40 h-40 rounded-full bg-[var(--color-primary)]/10 blur-3xl group-hover:scale-150 transition-transform duration-700" />
 
-            {/* Geometric shapes */}
-            <div className="absolute top-6 right-6 w-20 h-20 rounded-2xl border-2 border-[var(--color-primary)]/20 rotate-12 group-hover:rotate-45 transition-transform duration-500" />
-            <div className="absolute bottom-6 left-6 w-16 h-16 rounded-full border-2 border-[var(--color-secondary)]/20 group-hover:scale-125 transition-transform duration-500" />
-
             {/* Category badge */}
-            <div className="absolute top-4 left-4 px-3 py-1.5 rounded-full bg-[var(--color-card-bg)]/90 backdrop-blur-sm border border-[var(--color-border)] shadow-lg">
+            <div className="absolute top-4 left-4 px-3 py-1.5 rounded-full bg-white/90 backdrop-blur-sm shadow-lg">
               <span className="text-xs font-semibold text-[var(--code-inline-color)]">
                 {category}
               </span>
@@ -85,7 +82,7 @@ function Card(props: CardProps) {
 
             {/* Hover icon */}
             <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
-              <div className="w-14 h-14 rounded-full bg-[var(--color-card-bg)]/80 backdrop-blur-sm flex items-center justify-center transform scale-75 group-hover:scale-100 transition-transform duration-300 shadow-xl text-2xl">
+              <div className="w-14 h-14 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center transform scale-75 group-hover:scale-100 transition-transform duration-300 shadow-xl text-2xl">
                 →
               </div>
             </div>
@@ -101,7 +98,7 @@ function Card(props: CardProps) {
               {description}
             </p>
 
-            <div className="flex items-center gap-3 text-xs text-[var(--color-text-muted)] pt-4 border-t border-[var(--color-border)]">
+            <div className="flex items-center gap-3 text-xs text-[var(--color-text-muted)] pt-4">
               <div className="flex items-center gap-1.5">
                 📅
                 <time dateTime={date}>
@@ -122,7 +119,7 @@ function Card(props: CardProps) {
 
   // List variant (default)
   return (
-    <article className="card-3d group relative overflow-hidden bg-[var(--color-card-bg)] border border-[var(--color-border)] cursor-pointer rounded-2xl mx-0 my-6 shadow-[0_2px_8px_var(--color-shadow)] hover:shadow-[0_8px_24px_var(--color-shadow)] transition-all duration-300">
+    <article className="card-3d group relative overflow-hidden bg-white cursor-pointer rounded-3xl mx-0 my-6 shadow-md hover:shadow-lg transition-all duration-300">
       {/* Gradient accent on hover */}
       <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-secondary)] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 

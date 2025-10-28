@@ -1,15 +1,13 @@
 'use client';
-import React, { useEffect, useMemo, useRef, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { IconSparkles, IconTrendingUp } from '@tabler/icons-react';
-import Typed from 'typed.js';
 import { PostMetadata } from '@lib/posts';
 
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 
 function Slider() {
   const router = useRouter();
-  const textRef = useRef<HTMLDivElement | null>(null);
   const [posts, setPosts] = useState<PostMetadata[]>([]);
 
   function goHome() {
@@ -30,42 +28,18 @@ function Slider() {
     return posts.slice(0, 10);
   }, [posts]);
 
-  useEffect(() => {
-    if (!textRef.current) {
-      return;
-    }
-    const typed = new Typed(textRef.current, {
-      backDelay: 2000,
-      backSpeed: 50,
-      cursorChar: '|',
-      loop: true,
-      strings: ['前端开发者', 'Frontend Dev', 'Code Lover', '钟宝'],
-      typeSpeed: 100,
-    });
-    return () => {
-      typed.destroy();
-    };
-  }, []);
-
   return (
-    <aside className="sticky group/sidebar overflow-clip overflow-clip-margin top-2 justify-self-end w-[var(--width-slider)] h-[calc(100vh-var(--gap-margin))] z-10 m-2 rounded-3xl shadow-2xl">
+    <aside className="h-full rounded-3xl shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden relative bg-white">
       {/* Animated background with gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-primary)]/10 via-[var(--color-card-bg)] to-[var(--color-secondary)]/10" />
+      <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-primary)]/5 via-white to-[var(--color-secondary)]/5" />
 
-      {/* Animated blobs */}
-      <div className="absolute top-0 left-0 w-40 h-40 bg-[var(--color-primary)] opacity-5 rounded-full blur-3xl animate-blob" />
-      <div className="absolute bottom-0 right-0 w-40 h-40 bg-[var(--color-secondary)] opacity-5 rounded-full blur-3xl animate-blob animation-delay-2000" />
-
-      {/* Glass effect overlay */}
-      <div className="absolute inset-0 backdrop-blur-xl bg-[var(--color-card-bg)]/80 border border-[var(--color-border)]" />
-
-      <div className="relative h-full flex flex-col p-6">
+      <div className="relative h-full flex flex-col p-6 overflow-hidden">
         {/* Profile Section */}
         <div className="flex flex-col items-center mb-8 animate-slide-down">
           <div className="relative mb-4 group/avatar">
             {/* Rotating border */}
             <div
-              className="absolute inset-0 rounded-full bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-secondary)] animate-spin-slow opacity-75 blur-sm"
+              className="absolute inset-0 rounded-full bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-secondary)] animate-spin-slow opacity-50"
               style={{ animationDuration: '3s' }}
             />
 
@@ -75,18 +49,13 @@ function Slider() {
             >
               <AvatarImage src="https://github.com/shadcn.png" />
               <AvatarFallback className="bg-gradient-to-br from-[var(--color-primary)] to-[var(--color-secondary)] text-white font-bold">
-                钟宝
+                zhongbao.su
               </AvatarFallback>
             </Avatar>
 
             {/* Status indicator */}
             <div className="absolute bottom-1 right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-[var(--color-card-bg)] animate-pulse" />
           </div>
-
-          <h3
-            ref={textRef}
-            className="block text-lg font-bold text-[var(--color-text)] h-7 mb-2 whitespace-nowrap"
-          />
 
           <p className="text-sm text-[var(--color-text-muted)] text-center mb-4">🚀 探索代码之美</p>
 
@@ -110,7 +79,7 @@ function Slider() {
 
         {/* Welcome Message */}
         <div className="mb-6 animate-slide-up animation-delay-200">
-          <div className="relative bg-gradient-to-br from-[var(--code-inline-bg)] to-[var(--color-card-bg)] border border-[var(--color-border)] rounded-2xl p-4 shadow-lg overflow-hidden group/welcome hover:shadow-xl transition-shadow duration-300">
+          <div className="relative bg-gradient-to-br from-[var(--code-inline-bg)] to-white rounded-3xl p-4 shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden group/welcome">
             {/* Decorative corner */}
             <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-[var(--color-primary)]/10 to-transparent rounded-bl-full" />
 
@@ -145,7 +114,7 @@ function Slider() {
           <div className="space-y-1">
             {data.map((post, index) => (
               <div
-                className="group/item relative hover:bg-gradient-to-r hover:from-[var(--color-primary)]/5 hover:to-[var(--color-secondary)]/5 cursor-pointer transition-all duration-300 flex items-center gap-3 py-3 px-3 rounded-xl border border-transparent hover:border-[var(--color-border)] hover:shadow-md"
+                className="group/item relative bg-white hover:bg-gradient-to-r hover:from-[var(--color-primary)]/5 hover:to-[var(--color-secondary)]/5 cursor-pointer transition-all duration-300 flex items-center gap-3 py-3 px-3 rounded-xl hover:shadow-lg"
                 key={post.id}
                 onClick={() => goDetail(post)}
                 style={{ animationDelay: `${index * 0.05}s` }}
@@ -170,7 +139,7 @@ function Slider() {
         </div>
 
         {/* Bottom decoration */}
-        <div className="mt-4 pt-4 border-t border-[var(--color-border)]">
+        <div className="mt-4 pt-4">
           <div className="flex items-center justify-center gap-2 text-xs text-[var(--color-text-muted)]">
             <div className="w-2 h-2 rounded-full bg-[var(--color-primary)] animate-pulse" />
             <span>持续更新中</span>

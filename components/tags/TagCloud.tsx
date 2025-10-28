@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { IconTag } from '@tabler/icons-react';
+import { motion } from 'framer-motion';
 
 interface TagCloudProps {
   tags: string[];
@@ -12,55 +13,52 @@ const TAG_SIZES = ['text-base', 'text-lg', 'text-sm', 'text-xl', 'text-base', 't
 
 export default function TagCloud({ tags, colors }: TagCloudProps) {
   return (
-    <div className="relative flex flex-wrap justify-center gap-3 md:gap-4">
+    <div className="relative flex flex-wrap justify-center gap-3">
       {tags.map((tag, index) => {
-        const gradientClass = colors[index % colors.length];
         const sizeClass = TAG_SIZES[index % TAG_SIZES.length];
+        const isBlue = index % 2 === 0;
+        const gradient = isBlue
+          ? 'linear-gradient(135deg, var(--color-primary), var(--color-primary-light))'
+          : 'linear-gradient(135deg, var(--color-secondary), var(--color-secondary-light))';
 
         return (
-          <Link
-            href={`/tags/${tag}`}
+          <motion.div
             key={tag}
-            className={`group relative inline-flex items-center gap-2 px-5 py-3 rounded-2xl bg-gradient-to-br from-[var(--code-inline-bg)] to-[var(--color-card-bg)] border-2 border-[var(--color-border)] hover:border-transparent text-[var(--color-text)] font-semibold transition-all duration-300 hover:scale-110 hover:shadow-2xl overflow-hidden animate-scale-in ${sizeClass}`}
-            style={{
-              animationDelay: `${index * 0.05}s`,
-            }}
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.3, delay: index * 0.03 }}
           >
-            {/* Gradient overlay on hover */}
-            <div
-              className={`absolute inset-0 bg-gradient-to-r ${gradientClass} opacity-0 group-hover:opacity-100 transition-all duration-300`}
-            />
-
-            {/* Animated shine effect */}
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
-
-            {/* Icon */}
-            <div
-              className={`relative w-6 h-6 rounded-lg bg-gradient-to-br ${gradientClass} flex items-center justify-center group-hover:rotate-12 transition-transform duration-300`}
+            <Link
+              href={`/tags/${tag}`}
+              className={`group relative inline-flex items-center gap-2 px-4 py-2.5 rounded-xl font-medium transition-all duration-300 ${sizeClass}`}
+              style={{
+                background: 'var(--color-card-bg)',
+                border: '1px solid var(--color-border)',
+                color: 'var(--color-text)',
+              }}
             >
-              <IconTag size={14} className="text-white" />
-            </div>
+              {/* Gradient overlay on hover */}
+              <motion.div
+                className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                style={{ background: gradient }}
+              />
 
-            {/* Text */}
-            <span className="relative group-hover:text-white transition-colors duration-300 z-10">
-              {tag}
-            </span>
+              {/* Icon */}
+              <div
+                className="relative w-5 h-5 rounded-md flex items-center justify-center transition-transform duration-300 group-hover:scale-110"
+                style={{
+                  background: gradient,
+                }}
+              >
+                <IconTag size={12} className="text-white" />
+              </div>
 
-            {/* Particle effect on hover */}
-            <div className="absolute inset-0 pointer-events-none">
-              {[...Array(3)].map((_, i) => (
-                <div
-                  key={i}
-                  className="absolute w-1 h-1 rounded-full bg-white opacity-0 group-hover:opacity-100 group-hover:animate-ping"
-                  style={{
-                    top: `${Math.random() * 100}%`,
-                    left: `${Math.random() * 100}%`,
-                    animationDelay: `${i * 0.1}s`,
-                  }}
-                />
-              ))}
-            </div>
-          </Link>
+              {/* Text */}
+              <span className="relative group-hover:text-white transition-colors duration-300 z-10">
+                {tag}
+              </span>
+            </Link>
+          </motion.div>
         );
       })}
     </div>

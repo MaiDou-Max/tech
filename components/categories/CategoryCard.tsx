@@ -1,7 +1,8 @@
 'use client';
 
 import Link from 'next/link';
-import { IconFolder, IconChevronRight, IconSparkles } from '@tabler/icons-react';
+import { IconFolder, IconChevronRight } from '@tabler/icons-react';
+import { motion } from 'framer-motion';
 
 interface CategoryCardProps {
   category: string;
@@ -10,67 +11,70 @@ interface CategoryCardProps {
 }
 
 export default function CategoryCard({ category, gradientClass, index }: CategoryCardProps) {
+  const getGradient = () => {
+    if (index % 2 === 0) {
+      return 'linear-gradient(135deg, var(--color-primary), var(--color-secondary))';
+    }
+    return 'linear-gradient(135deg, var(--color-secondary), var(--color-primary))';
+  };
+
   return (
-    <Link
-      href={`/categories/${category}`}
-      className="group relative overflow-hidden bg-[var(--color-card-bg)] border border-[var(--color-border)] rounded-2xl p-6 shadow-[0_2px_12px_var(--color-shadow)] hover:shadow-[0_12px_30px_var(--color-shadow)] transition-all duration-500 hover:-translate-y-2 animate-scale-in"
-      style={{ animationDelay: `${index * 0.1}s` }}
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4, delay: index * 0.08 }}
     >
-      {/* Animated gradient background */}
-      <div
-        className={`absolute inset-0 bg-gradient-to-br ${gradientClass} opacity-0 group-hover:opacity-10 transition-all duration-500`}
-      />
+      <Link
+        href={`/categories/${category}`}
+        className="volantis-card group relative overflow-hidden p-6 block transition-all duration-300"
+      >
+        {/* 装饰性背景 */}
+        <div
+          className="absolute top-0 right-0 w-32 h-32 rounded-full blur-3xl opacity-0 group-hover:opacity-20 transition-opacity duration-500"
+          style={{ background: getGradient() }}
+        />
 
-      {/* Decorative circles */}
-      <div
-        className={`absolute -top-10 -right-10 w-40 h-40 bg-gradient-to-br ${gradientClass} opacity-10 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700`}
-      />
-      <div
-        className={`absolute -bottom-10 -left-10 w-32 h-32 bg-gradient-to-br ${gradientClass} opacity-5 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700 animation-delay-200`}
-      />
-
-      {/* Content */}
-      <div className="relative flex items-center justify-between">
-        <div className="flex items-center gap-4 flex-1">
-          {/* Icon with animated border */}
-          <div className="relative">
+        {/* 内容 */}
+        <div className="relative flex items-center justify-between">
+          <div className="flex items-center gap-4 flex-1">
+            {/* 图标 */}
             <div
-              className={`absolute inset-0 bg-gradient-to-br ${gradientClass} rounded-xl blur-md opacity-50 group-hover:opacity-100 transition-opacity duration-300`}
-            />
-            <div
-              className={`relative w-14 h-14 rounded-xl bg-gradient-to-br ${gradientClass} flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300`}
+              className="w-12 h-12 rounded-lg flex items-center justify-center transition-all duration-300 group-hover:scale-110"
+              style={{
+                background: getGradient(),
+                boxShadow: 'var(--shadow-sm)',
+              }}
             >
-              <IconFolder size={28} className="text-white" />
+              <IconFolder size={24} className="text-white" />
+            </div>
+
+            <div className="flex-1">
+              <h3 className="text-lg font-bold text-[var(--color-text)] group-hover:text-[var(--color-primary)] transition-colors duration-300">
+                {category}
+              </h3>
+              <p className="text-sm text-[var(--color-text-muted)]">
+                查看所有文章
+              </p>
             </div>
           </div>
 
-          <div className="flex-1">
-            <h3 className="text-xl font-bold text-[var(--color-text)] mb-1 group-hover:text-[var(--color-primary)] transition-colors duration-200">
-              {category}
-            </h3>
-            <p className="text-sm text-[var(--color-text-muted)] flex items-center gap-1">
-              <IconSparkles size={14} />
-              <span>查看所有文章</span>
-            </p>
-          </div>
+          {/* 箭头 */}
+          <motion.div
+            className="w-9 h-9 rounded-lg flex items-center justify-center"
+            style={{
+              background: 'var(--color-border)',
+              color: 'var(--color-text-muted)',
+            }}
+            whileHover={{
+              background: getGradient(),
+              x: 4,
+            }}
+            transition={{ duration: 0.2 }}
+          >
+            <IconChevronRight size={18} className="group-hover:text-white transition-colors" />
+          </motion.div>
         </div>
-
-        {/* Arrow with animation */}
-        <div className="relative">
-          <div className="absolute inset-0 bg-[var(--color-primary)] rounded-full blur-md opacity-0 group-hover:opacity-50 transition-opacity duration-300" />
-          <div className="relative w-10 h-10 rounded-full bg-[var(--code-inline-bg)] group-hover:bg-[var(--color-primary)] flex items-center justify-center transition-all duration-300">
-            <IconChevronRight
-              size={20}
-              className="text-[var(--color-text-muted)] group-hover:text-white group-hover:translate-x-1 transition-all duration-200"
-            />
-          </div>
-        </div>
-      </div>
-
-      {/* Bottom decoration line */}
-      <div
-        className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r ${gradientClass} transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left`}
-      />
-    </Link>
+      </Link>
+    </motion.div>
   );
 }

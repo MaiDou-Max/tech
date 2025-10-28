@@ -7,15 +7,23 @@ const config = {
   prefix: '',
   theme: {
     extend: {
+      screens: {
+        '2xl': '1536px',
+        '3xl': '1920px',
+      },
       fontFamily: {
         longCang: ['var(--font-google-long-cang)'],
         sans: ['var(--font-google-sans)'],
         serif: ['var(--font-google-serif)'],
         handwriting: ['var(--font-google-handwriting)'],
+        pacifico: ['var(--font-google-pacifico)'],
+        dancing: ['var(--font-google-dancing)'],
       },
       boxShadow: {
-        card: '0 1px 2px 0 rgba(0, 0, 0, .1)',
-        hoverCard: '0 12px 20px -4px rgba(0, 0, 0, .15)',
+        card: '0 2px 12px rgba(0, 0, 0, 0.06)',
+        hoverCard: '0 12px 32px rgba(59, 130, 246, 0.15)',
+        'blue': '0 8px 24px rgba(59, 130, 246, 0.25)',
+        'pink': '0 8px 24px rgba(244, 114, 182, 0.25)',
       },
       typography: {
         DEFAULT: {

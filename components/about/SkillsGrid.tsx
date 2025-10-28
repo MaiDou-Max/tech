@@ -30,16 +30,29 @@ export default function SkillsGrid() {
     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12">
       {skills.map((skill, index) => {
         const Icon = skill.icon;
+        const isBlue = index % 2 === 0;
         return (
           <div
             key={skill.title}
-            className="flex items-start gap-4 p-4 rounded-xl bg-[var(--code-inline-bg)] border border-[var(--color-border)] hover:border-[var(--color-primary)] transition-all duration-200 hover:shadow-lg animate-scale-in"
-            style={{ animationDelay: `${index * 0.1}s` }}
+            className="volantis-card flex items-start gap-4 p-5 group"
           >
-            <Icon size={32} className="text-[var(--color-primary)] flex-shrink-0" />
+            <div
+              className="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0 transition-transform duration-300 group-hover:scale-110"
+              style={{
+                background: isBlue
+                  ? 'linear-gradient(135deg, var(--color-primary), var(--color-primary-light))'
+                  : 'linear-gradient(135deg, var(--color-secondary), var(--color-secondary-light))',
+              }}
+            >
+              <Icon size={24} className="text-white" />
+            </div>
             <div>
-              <h3 className="text-lg font-semibold text-[var(--color-text)] mb-1">{skill.title}</h3>
-              <p className="text-sm text-[var(--color-text-muted)]">{skill.description}</p>
+              <h3 className="text-base font-semibold mb-1" style={{ color: 'var(--color-text)' }}>
+                {skill.title}
+              </h3>
+              <p className="text-sm" style={{ color: 'var(--color-text-muted)' }}>
+                {skill.description}
+              </p>
             </div>
           </div>
         );

@@ -1,4 +1,6 @@
 import { getAllCategories } from '@/lib/posts';
+import Header from '@/components/header';
+import Footer from '@/components/footer';
 import CategoryHero from '@/components/categories/CategoryHero';
 import CategoryCard from '@/components/categories/CategoryCard';
 
@@ -25,11 +27,12 @@ export default function Categories() {
   const categories = getAllCategories();
 
   return (
-    <main className="relative pt-2">
+    <>
       <CategoryHero />
+
       {/* Categories Grid */}
-      <section className="px-6 mb-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <section className="mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {categories.map((category, index) => {
             const key = category.toLowerCase();
             const gradientClass =
@@ -46,6 +49,6 @@ export default function Categories() {
           })}
         </div>
       </section>
-    </main>
+    </>
   );
 }

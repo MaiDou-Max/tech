@@ -11,15 +11,14 @@ export default function ArchivePage() {
   const tags = getAllTags();
 
   return (
-    <main className="relative pt-2">
+    <>
       <Header />
       <ArchiveHero />
-      <section className="px-6 mb-20">
-        {/* Layout handled inside ArchiveContent (includes YearMonthNav) */}
+      <section className="mb-12">
         <ArchiveContent posts={posts} categories={categories} tags={tags} />
       </section>
       <ScrollToTop />
       <Footer />
-    </main>
+    </>
   );
 }
