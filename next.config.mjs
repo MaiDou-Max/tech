@@ -5,6 +5,8 @@ const widthMdx = createMDX({
   options: {},
 });
 
+const isProd = process.env.NODE_ENV === 'production';
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   pageExtensions: ['md', 'mdx', 'tsx', 'ts', 'jsx', 'js'],
@@ -14,9 +16,12 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
-  basePath: '/tech',
-  assetPrefix: '/tech/',
+  basePath: isProd ? '/tech' : '',
+  assetPrefix: isProd ? '/tech' : '',
   output: 'export',
+  images: {
+    unoptimized: true,
+  },
 };
 
 export default widthMdx(nextConfig);

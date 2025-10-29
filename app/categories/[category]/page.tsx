@@ -1,8 +1,16 @@
-import { getSortedPostsData } from '@/lib/posts';
+import { getSortedPostsData, getAllCategories } from '@/lib/posts';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
 import Card from '@/components/card';
 import CategoryDetailHeader from '@/components/categories/CategoryDetailHeader';
+
+// 生成所有分类的静态路径
+export async function generateStaticParams() {
+  const categories = getAllCategories();
+  return categories.map((category) => ({
+    category: category,
+  }));
+}
 
 export default function CategoryPage({ params }: { params: { category: string } }) {
   const allPostsData = getSortedPostsData();

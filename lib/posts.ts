@@ -61,9 +61,7 @@ export function getAllPostIds() {
     .filter(fileName => !fileName.endsWith('.draft'))
     .map(fileName => {
       return {
-        params: {
-          id: fileName.replace(/\.md$/, ''),
-        },
+        id: fileName.replace(/\.md$/, ''),
       };
     });
 }
