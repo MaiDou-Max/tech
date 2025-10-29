@@ -74,7 +74,9 @@ export default function ArticleFooter({ prevPost, nextPost, postData }: ArticleF
                 {/* Hover preview */}
                 <div className="absolute bottom-full left-0 mb-2 p-3 bg-[var(--color-card-bg)] border border-[var(--color-border)] rounded-lg shadow-xl opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none max-w-xs z-10">
                   <p className="text-xs text-[var(--color-text-muted)] mb-1">上一篇文章</p>
-                  <p className="text-sm font-medium text-[var(--color-text)] line-clamp-2">{prevPost.title}</p>
+                  <p className="text-sm font-medium text-[var(--color-text)] line-clamp-2">
+                    {prevPost.title}
+                  </p>
                 </div>
               </Link>
             ) : (
@@ -135,7 +137,9 @@ export default function ArticleFooter({ prevPost, nextPost, postData }: ArticleF
                 {/* Hover preview */}
                 <div className="absolute bottom-full right-0 mb-2 p-3 bg-[var(--color-card-bg)] border border-[var(--color-border)] rounded-lg shadow-xl opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none max-w-xs z-10">
                   <p className="text-xs text-[var(--color-text-muted)] mb-1">下一篇文章</p>
-                  <p className="text-sm font-medium text-[var(--color-text)] line-clamp-2">{nextPost.title}</p>
+                  <p className="text-sm font-medium text-[var(--color-text)] line-clamp-2">
+                    {nextPost.title}
+                  </p>
                 </div>
               </Link>
             ) : (

@@ -3,48 +3,51 @@
 @tailwind utilities;
 
 :root {
-    /* 🎨 清新蓝粉色主题配色 */
-    --color-primary: #3b82f6; /* 鲜明蓝 */
-    --color-primary-light: #60a5fa;
-    --color-primary-dark: #2563eb;
+    /* 🎨 Volantis-inspired 清新优雅主题 */
+    --color-primary: #1e88e5; /* 清爽蓝 */
+    --color-primary-light: #42a5f5;
+    --color-primary-dark: #1565c0;
 
-    --color-secondary: #f472b6; /* 鲜明粉 */
-    --color-secondary-light: #f9a8d4;
-    --color-secondary-dark: #ec4899;
+    --color-secondary: #26a69a; /* 青绿色 */
+    --color-secondary-light: #4db6ac;
+    --color-secondary-dark: #00897b;
 
-    /* 渐变色定义 - 清新蓝粉 */
-    --gradient-main: linear-gradient(135deg, #60a5fa 0%, #f9a8d4 100%);
-    --gradient-blue-pink: linear-gradient(to right, #3b82f6, #f472b6);
-    --gradient-pink-blue: linear-gradient(to right, #f472b6, #3b82f6);
+    --color-accent: #f06292; /* 淡粉色点缀 */
+    --color-accent-light: #f48fb1;
 
-    /* 背景 */
-    --color-background: #0f172a;
-    --color-background-secondary: #1e293b;
-    --color-card-bg: rgba(255, 255, 255, 0.05);
-    --color-card-hover-bg: rgba(255, 255, 255, 0.08);
+    /* 渐变色定义 - 优雅渐变 */
+    --gradient-main: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --gradient-blue-teal: linear-gradient(135deg, #1e88e5 0%, #26a69a 100%);
+    --gradient-soft: linear-gradient(135deg, rgba(30, 136, 229, 0.1) 0%, rgba(38, 166, 154, 0.1) 100%);
+
+    /* 背景 - 深色模式 */
+    --color-background: #1a1d28;
+    --color-background-secondary: #24273a;
+    --color-card-bg: rgba(255, 255, 255, 0.03);
+    --color-card-hover-bg: rgba(255, 255, 255, 0.06);
 
     /* 文字 */
-    --color-text: #f1f5f9;
-    --color-text-secondary: #cbd5e1;
-    --color-text-muted: #94a3b8;
+    --color-text: #e4e6eb;
+    --color-text-secondary: #b8bcc8;
+    --color-text-muted: #8b92a8;
 
     /* 边框 */
-    --color-border: rgba(203, 213, 225, 0.1);
-    --color-border-hover: rgba(59, 130, 246, 0.4);
+    --color-border: rgba(255, 255, 255, 0.08);
+    --color-border-hover: rgba(30, 136, 229, 0.3);
 
     /* 阴影 */
-    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
-    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);
-    --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.15);
-    --shadow-blue: 0 8px 24px rgba(59, 130, 246, 0.25);
-    --shadow-pink: 0 8px 24px rgba(244, 114, 182, 0.25);
-    --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.08);
-    --shadow-card-hover: 0 12px 40px rgba(59, 130, 246, 0.2), 0 0 0 1px rgba(59, 130, 246, 0.15);
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.15);
+    --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.2);
+    --shadow-blue: 0 8px 24px rgba(30, 136, 229, 0.2);
+    --shadow-teal: 0 8px 24px rgba(38, 166, 154, 0.2);
+    --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.1);
+    --shadow-card-hover: 0 12px 40px rgba(30, 136, 229, 0.15), 0 0 0 1px rgba(30, 136, 229, 0.1);
 
     /* 代码块 */
-    --code-bg: rgba(15, 23, 42, 0.95);
-    --code-inline-bg: rgba(59, 130, 246, 0.15);
-    --code-inline-color: #60a5fa;
+    --code-bg: rgba(26, 29, 40, 0.95);
+    --code-inline-bg: rgba(30, 136, 229, 0.15);
+    --code-inline-color: #42a5f5;
 
     /* 圆角 */
     --radius-sm: 8px;
@@ -53,33 +56,38 @@
     --radius-xl: 20px;
 
     /* 成功色 */
-    --color-success: #10b981;
+    --color-success: #26a69a;
 }
 
 [data-mode="light"] {
-    --color-background: #cbd5e1;
-    --color-background-secondary: #e2e8f0;
-    --color-card-bg: rgba(255, 255, 255, 1);
-    --color-card-hover-bg: rgba(255, 255, 255, 1);
+    /* 背景 - 浅色模式 */
+    --color-background: #f5f7fa;
+    --color-background-secondary: #ffffff;
+    --color-card-bg: #ffffff;
+    --color-card-hover-bg: #ffffff;
 
-    --color-text: #0f172a;
-    --color-text-secondary: #1e293b;
-    --color-text-muted: #334155;
+    /* 文字 */
+    --color-text: #2c3e50;
+    --color-text-secondary: #5a6c7d;
+    --color-text-muted: #8492a6;
 
-    --color-border: rgba(15, 23, 42, 0.2);
-    --color-border-hover: rgba(59, 130, 246, 0.6);
+    /* 边框 */
+    --color-border: rgba(44, 62, 80, 0.1);
+    --color-border-hover: rgba(30, 136, 229, 0.4);
 
-    --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.1);
-    --shadow-md: 0 4px 16px rgba(15, 23, 42, 0.12);
-    --shadow-lg: 0 8px 32px rgba(15, 23, 42, 0.18);
-    --shadow-blue: 0 8px 24px rgba(59, 130, 246, 0.3);
-    --shadow-pink: 0 8px 24px rgba(244, 114, 182, 0.3);
-    --shadow-card: 0 2px 12px rgba(15, 23, 42, 0.12);
-    --shadow-card-hover: 0 12px 32px rgba(59, 130, 246, 0.25), 0 0 0 1px rgba(59, 130, 246, 0.3);
+    /* 阴影 */
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.08);
+    --shadow-blue: 0 8px 24px rgba(30, 136, 229, 0.15);
+    --shadow-teal: 0 8px 24px rgba(38, 166, 154, 0.15);
+    --shadow-card: 0 2px 12px rgba(0, 0, 0, 0.06);
+    --shadow-card-hover: 0 12px 32px rgba(30, 136, 229, 0.12), 0 0 0 1px rgba(30, 136, 229, 0.2);
 
-    --code-bg: rgba(226, 232, 240, 0.98);
-    --code-inline-bg: rgba(59, 130, 246, 0.18);
-    --code-inline-color: #2563eb;
+    /* 代码块 */
+    --code-bg: #f8f9fa;
+    --code-inline-bg: rgba(30, 136, 229, 0.08);
+    --code-inline-color: #1565c0;
 }
 
 /* 🌟 全局样式重置 */
@@ -129,8 +137,8 @@ body::before {
     position: fixed;
     inset: 0;
     background-image:
-        linear-gradient(rgba(59, 130, 246, 0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(244, 114, 182, 0.04) 1px, transparent 1px);
+        linear-gradient(rgba(30, 136, 229, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(38, 166, 154, 0.03) 1px, transparent 1px);
     background-size: 60px 60px;
     pointer-events: none;
     z-index: 0;
@@ -138,8 +146,8 @@ body::before {
 
 [data-mode="light"] body::before {
     background-image:
-        linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(244, 114, 182, 0.1) 1px, transparent 1px);
+        linear-gradient(rgba(30, 136, 229, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(38, 166, 154, 0.08) 1px, transparent 1px);
 }
 
 /* 🌈 渐变动画背景 */
@@ -147,16 +155,16 @@ body::after {
     content: '';
     position: fixed;
     inset: 0;
-    background: radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(244, 114, 182, 0.08) 0%, transparent 50%);
+    background: radial-gradient(circle at 20% 50%, rgba(30, 136, 229, 0.06) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(38, 166, 154, 0.06) 0%, transparent 50%);
     animation: gradient-shift 20s ease infinite;
     pointer-events: none;
     z-index: 0;
 }
 
 [data-mode="light"] body::after {
-    background: radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(244, 114, 182, 0.15) 0%, transparent 50%);
+    background: radial-gradient(circle at 20% 50%, rgba(30, 136, 229, 0.12) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(38, 166, 154, 0.12) 0%, transparent 50%);
 }
 
 @keyframes gradient-shift {
@@ -173,7 +181,7 @@ body::after {
     box-shadow: var(--shadow-card);
     position: relative;
     overflow: hidden;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 [data-mode="light"] .neo-card,
@@ -208,7 +216,7 @@ body::after {
     position: relative;
     overflow: hidden;
     box-shadow: var(--shadow-blue);
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
 }
 
 .glow-button::before {
@@ -231,7 +239,7 @@ body::after {
 
 /* ✨ 文字渐变效果 */
 .gradient-text {
-    background: var(--gradient-blue-pink);
+    background: var(--gradient-blue-teal);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -312,7 +320,7 @@ body::after {
     background: var(--gradient-main);
     border-radius: 24px;
     opacity: 0;
-    transition: opacity 0.3s;
+    transition: opacity 0.2s;
     z-index: -1;
     animation: rotate-glow 3s linear infinite;
 }
@@ -422,5 +430,93 @@ body::after {
 .artistic-title {
     font-family: var(--font-google-pacifico);
     letter-spacing: 0.02em;
+}
+
+/* 🎯 React Aria Components 动画支持 */
+@keyframes fade-in-zoom {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fade-out-zoom {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}
+
+/* React Aria entering/exiting 动画类 */
+.entering\:animate-in {
+  animation: fade-in-zoom 0.2s ease-out;
+}
+
+.entering\:fade-in {
+  animation: fade-in 0.2s ease-out;
+}
+
+.entering\:zoom-in-95 {
+  animation: fade-in-zoom 0.2s ease-out;
+}
+
+.exiting\:animate-out {
+  animation: fade-out-zoom 0.15s ease-in;
+}
+
+.exiting\:fade-out {
+  animation: fade-out 0.15s ease-in;
+}
+
+.exiting\:zoom-out-95 {
+  animation: fade-out-zoom 0.15s ease-in;
+}
+
+/* 🎯 React Aria Components 优化 */
+
+/* 防止 Popover 打开时锁定页面滚动 */
+body:has([data-react-aria-popover]) {
+  overflow: auto !important;
+}
+
+/* Popover 平滑过渡 */
+[data-react-aria-popover] {
+  opacity: 0;
+  transform: scale(0.95) translateY(-8px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+[data-react-aria-popover][data-entering] {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+[data-react-aria-popover][data-exiting] {
+  opacity: 0;
+  transform: scale(0.95) translateY(-8px);
+}
+
+/* ListBox 样式优化 */
+[role="listbox"] {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+[role="option"]:focus {
+  outline: none;
+}
+
+/* Select Button 优化 */
+[role="button"][aria-haspopup="listbox"] {
+  position: relative;
+  z-index: 1;
 }
 

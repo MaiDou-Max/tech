@@ -24,7 +24,7 @@ export default function ArticleHeader({ title }: ArticleHeaderProps) {
 
   const handleLike = () => {
     setIsLiked(!isLiked);
-    setLikeCount(prev => isLiked ? prev - 1 : prev + 1);
+    setLikeCount(prev => (isLiked ? prev - 1 : prev + 1));
     showToastMessage(isLiked ? '已取消点赞' : '感谢点赞！');
   };
 

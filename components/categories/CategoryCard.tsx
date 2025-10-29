@@ -6,11 +6,10 @@ import { motion } from 'framer-motion';
 
 interface CategoryCardProps {
   category: string;
-  gradientClass: string;
   index: number;
 }
 
-export default function CategoryCard({ category, gradientClass, index }: CategoryCardProps) {
+export default function CategoryCard({ category, index }: CategoryCardProps) {
   const getGradient = () => {
     if (index % 2 === 0) {
       return 'linear-gradient(135deg, var(--color-primary), var(--color-secondary))';
@@ -26,11 +25,11 @@ export default function CategoryCard({ category, gradientClass, index }: Categor
     >
       <Link
         href={`/categories/${category}`}
-        className="volantis-card group relative overflow-hidden p-6 block transition-all duration-300"
+        className="volantis-card group relative overflow-hidden p-6 block transition-all duration-200"
       >
         {/* 装饰性背景 */}
         <div
-          className="absolute top-0 right-0 w-32 h-32 rounded-full blur-3xl opacity-0 group-hover:opacity-20 transition-opacity duration-500"
+          className="absolute top-0 right-0 w-32 h-32 rounded-full blur-3xl opacity-0 group-hover:opacity-20 transition-opacity duration-300"
           style={{ background: getGradient() }}
         />
 
@@ -39,7 +38,7 @@ export default function CategoryCard({ category, gradientClass, index }: Categor
           <div className="flex items-center gap-4 flex-1">
             {/* 图标 */}
             <div
-              className="w-12 h-12 rounded-lg flex items-center justify-center transition-all duration-300 group-hover:scale-110"
+              className="w-12 h-12 rounded-lg flex items-center justify-center transition-all duration-200 group-hover:scale-110"
               style={{
                 background: getGradient(),
                 boxShadow: 'var(--shadow-sm)',
@@ -49,12 +48,10 @@ export default function CategoryCard({ category, gradientClass, index }: Categor
             </div>
 
             <div className="flex-1">
-              <h3 className="text-lg font-bold text-[var(--color-text)] group-hover:text-[var(--color-primary)] transition-colors duration-300">
+              <h3 className="text-lg font-bold text-[var(--color-text)] group-hover:text-[var(--color-primary)] transition-colors duration-200">
                 {category}
               </h3>
-              <p className="text-sm text-[var(--color-text-muted)]">
-                查看所有文章
-              </p>
+              <p className="text-sm text-[var(--color-text-muted)]">查看所有文章</p>
             </div>
           </div>
 

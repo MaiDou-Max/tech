@@ -18,7 +18,9 @@ export default function RightSidebar() {
         <div className="px-4 py-3 border-b border-[var(--color-border)]">
           <div className="flex items-center gap-2">
             <IconCode size={18} style={{ color: 'var(--color-primary)' }} />
-            <h3 className="font-bold text-sm" style={{ color: 'var(--color-text)' }}>技术栈演示</h3>
+            <h3 className="font-bold text-sm" style={{ color: 'var(--color-text)' }}>
+              技术栈演示
+            </h3>
           </div>
           <p className="text-xs mt-1" style={{ color: 'var(--color-text-muted)' }}>
             点击刷新按钮重置动画
@@ -33,4 +35,3 @@ export default function RightSidebar() {
     </motion.aside>
   );
 }
-

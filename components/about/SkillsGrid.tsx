@@ -32,10 +32,7 @@ export default function SkillsGrid() {
         const Icon = skill.icon;
         const isBlue = index % 2 === 0;
         return (
-          <div
-            key={skill.title}
-            className="volantis-card flex items-start gap-4 p-5 group"
-          >
+          <div key={skill.title} className="volantis-card flex items-start gap-4 p-5 group">
             <div
               className="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0 transition-transform duration-300 group-hover:scale-110"
               style={{

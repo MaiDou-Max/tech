@@ -18,7 +18,9 @@ function Footer() {
                   <span className="text-white font-bold text-lg">宝</span>
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-base font-bold text-[var(--color-text)]">zhongbao.su的博客</span>
+                  <span className="text-base font-bold text-[var(--color-text)]">
+                    zhongbao.su的博客
+                  </span>
                   <span className="text-xs text-[var(--color-text-muted)]">分享技术，记录成长</span>
                 </div>
               </div>
@@ -72,14 +74,6 @@ function Footer() {
               <a href="/archive" className="hover:text-[var(--color-primary)] transition-colors">
                 归档
               </a>
-            </div>
-          </div>
-
-          {/* Optional: Stats or badge */}
-          <div className="mt-6 pt-6 border-t border-[var(--color-border)] flex justify-center">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--color-border-light)] text-xs text-[var(--color-text-muted)]">
-              <div className="w-2 h-2 rounded-full bg-[var(--color-success)] animate-pulse" />
-              <span>网站运行正常</span>
             </div>
           </div>
         </div>

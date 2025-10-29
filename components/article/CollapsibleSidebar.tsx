@@ -109,4 +109,3 @@ export default function CollapsibleSidebar({ postData, allPosts }: CollapsibleSi
     </div>
   );
 }
-

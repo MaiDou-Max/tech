@@ -26,7 +26,7 @@ export default function HeroSectionNew() {
               duration: 4 + Math.random() * 2,
               repeat: Infinity,
               delay: Math.random() * 2,
-              ease: "easeInOut"
+              ease: 'easeInOut',
             }}
           />
         ))}
@@ -43,21 +43,25 @@ export default function HeroSectionNew() {
         >
           <motion.div
             animate={{ y: [0, -8, 0] }}
-            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+            transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
           >
             <IconCode size={40} style={{ color: 'var(--color-primary)' }} strokeWidth={1.5} />
           </motion.div>
           <motion.div
             animate={{ y: [0, -12, 0] }}
-            transition={{ duration: 3.5, repeat: Infinity, delay: 0.5, ease: "easeInOut" }}
+            transition={{ duration: 3.5, repeat: Infinity, delay: 0.5, ease: 'easeInOut' }}
           >
             <IconSparkles size={40} style={{ color: 'var(--color-secondary)' }} strokeWidth={1.5} />
           </motion.div>
           <motion.div
             animate={{ y: [0, -10, 0] }}
-            transition={{ duration: 3.2, repeat: Infinity, delay: 1, ease: "easeInOut" }}
+            transition={{ duration: 3.2, repeat: Infinity, delay: 1, ease: 'easeInOut' }}
           >
-            <IconRocket size={40} style={{ color: 'var(--color-primary-light)' }} strokeWidth={1.5} />
+            <IconRocket
+              size={40}
+              style={{ color: 'var(--color-primary-light)' }}
+              strokeWidth={1.5}
+            />
           </motion.div>
         </motion.div>
 
@@ -124,7 +128,7 @@ export default function HeroSectionNew() {
         <motion.div
           className="absolute bottom-8 left-1/2 -translate-x-1/2"
           animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
         >
@@ -136,7 +140,7 @@ export default function HeroSectionNew() {
               className="w-1.5 h-1.5 rounded-full"
               style={{ background: 'var(--gradient-main)' }}
               animate={{ y: [0, 12, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+              transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
             />
           </div>
         </motion.div>
@@ -144,4 +148,3 @@ export default function HeroSectionNew() {
     </section>
   );
 }
-

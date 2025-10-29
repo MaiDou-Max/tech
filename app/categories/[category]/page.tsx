@@ -10,7 +10,6 @@ export default function CategoryPage({ params }: { params: { category: string } 
 
   return (
     <main className="relative pt-2 animate-fade-in">
-
       <div className="px-6">
         <CategoryDetailHeader category={params.category} totalPosts={categoryPosts.length} />
 

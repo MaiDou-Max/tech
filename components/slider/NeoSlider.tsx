@@ -55,7 +55,7 @@ export default function NeoSlider() {
             className="absolute -bottom-0.5 -right-0.5 w-4 h-4 rounded-full border-3"
             style={{
               background: 'var(--color-success)',
-              borderColor: 'var(--color-card-bg)'
+              borderColor: 'var(--color-card-bg)',
             }}
             animate={{ scale: [1, 1.15, 1] }}
             transition={{ duration: 2, repeat: Infinity }}
@@ -63,9 +63,7 @@ export default function NeoSlider() {
         </motion.div>
 
         {/* 动态文字 */}
-        <h3 className="text-base font-bold gradient-text mb-1 font-pacifico">
-          Frontend Developer
-        </h3>
+        <h3 className="text-base font-bold gradient-text mb-1 font-pacifico">Frontend Developer</h3>
 
         <p className="text-xs mb-3" style={{ color: 'var(--color-text-muted)' }}>
           探索代码之美 🚀
@@ -87,14 +85,10 @@ export default function NeoSlider() {
                 transition={{ delay: idx * 0.08 }}
                 whileHover={{
                   y: -2,
-                  boxShadow: 'var(--shadow-sm)'
+                  boxShadow: 'var(--shadow-sm)',
                 }}
               >
-                <Icon
-                  size={16}
-                  className="mx-auto mb-1"
-                  style={{ color: stat.color }}
-                />
+                <Icon size={16} className="mx-auto mb-1" style={{ color: stat.color }} />
                 <div className="text-sm font-bold" style={{ color: 'var(--color-text)' }}>
                   {stat.value}
                 </div>
@@ -123,58 +117,43 @@ export default function NeoSlider() {
         </div>
       </div>
 
-      {/* 最新文章 */}
+      {/* 热门文章 - 使用最近更新样式 */}
       <div className="volantis-card p-4">
-        <div className="flex items-center gap-2 mb-3">
-          <IconTrendingUp size={16} style={{ color: 'var(--color-secondary)' }} />
-          <h3 className="font-bold text-sm" style={{ color: 'var(--color-text)' }}>热门文章</h3>
+        <div className="flex items-center justify-between mb-3">
+          <div className="flex items-center gap-2">
+            <IconTrendingUp size={18} className="text-[var(--color-primary)]" />
+            <h4 className="text-xs font-bold text-[var(--color-text)] uppercase tracking-wider">
+              最近更新
+            </h4>
+          </div>
+          <div className="w-2 h-2 rounded-full bg-[var(--color-primary)] animate-pulse" />
         </div>
 
-        <div className="space-y-1.5">
+        <div className="space-y-1">
           {posts.map((post, idx) => (
-            <motion.div
+            <div
               key={post.id}
-              initial={{ opacity: 0, x: -10 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.4 + idx * 0.06 }}
-              className="group cursor-pointer p-2 rounded-lg transition-all"
-              style={{
-                border: '1px solid transparent',
-              }}
+              className="group/item relative bg-[var(--color-card-bg)] hover:bg-gradient-to-r hover:from-[var(--color-primary)]/5 hover:to-[var(--color-secondary)]/5 cursor-pointer transition-all duration-300 flex items-center gap-3 py-3 px-3 rounded-xl hover:shadow-lg border border-[var(--color-border)] hover:border-[var(--color-border-hover)]"
               onClick={() => router.push(`/posts/${post.id}`)}
-              whileHover={{
-                x: 4,
-                backgroundColor: 'var(--color-border)',
-                borderColor: 'var(--color-border-hover)',
-              }}
             >
-              <div className="flex items-start gap-2">
-                <div
-                  className="flex-shrink-0 w-6 h-6 rounded-md flex items-center justify-center text-white font-bold text-xs"
-                  style={{ background: 'var(--gradient-main)' }}
-                >
-                  {idx + 1}
-                </div>
-                <div className="flex-1 min-w-0">
-                  <h4
-                    className="text-xs font-medium line-clamp-2 group-hover:text-[var(--color-primary)] transition-colors leading-snug"
-                    style={{ color: 'var(--color-text)' }}
-                  >
-                    {post.title}
-                  </h4>
-                  <span className="text-[10px]" style={{ color: 'var(--color-text-muted)' }}>
-                    {new Date(post.date).toLocaleDateString('zh-CN', {
-                      month: 'short',
-                      day: 'numeric',
-                    })}
-                  </span>
-                </div>
+              {/* Number badge */}
+              <div className="flex-shrink-0 w-6 h-6 rounded-lg bg-[var(--code-inline-bg)] flex items-center justify-center text-[10px] font-bold text-[var(--color-primary)] group-hover/item:scale-110 transition-transform">
+                {idx + 1}
               </div>
-            </motion.div>
+
+              {/* Post title */}
+              <span className="flex-1 text-sm text-[var(--color-text)] overflow-hidden text-ellipsis whitespace-nowrap group-hover/item:text-[var(--color-primary)] transition-colors font-medium">
+                {post.title}
+              </span>
+
+              {/* Arrow indicator */}
+              <div className="flex-shrink-0 w-5 h-5 rounded-full bg-[var(--color-primary)]/10 flex items-center justify-center opacity-0 group-hover/item:opacity-100 transition-all duration-200">
+                <div className="w-1.5 h-1.5 rounded-full bg-[var(--color-primary)]" />
+              </div>
+            </div>
           ))}
         </div>
       </div>
     </motion.aside>
   );
 }
-

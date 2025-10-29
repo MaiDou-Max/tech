@@ -1,5 +1,12 @@
 import { clsx } from 'clsx';
-import { Handlee, Nunito, Sorts_Mill_Goudy, Long_Cang, Pacifico, Dancing_Script } from 'next/font/google';
+import {
+  Handlee,
+  Nunito,
+  Sorts_Mill_Goudy,
+  Long_Cang,
+  Pacifico,
+  Dancing_Script,
+} from 'next/font/google';
 import { ThemeProvider } from 'next-themes';
 import NeoSlider from '@/components/slider/NeoSlider';
 import RightSidebar from '@/components/slider/RightSidebar';
@@ -94,9 +101,6 @@ function RootLayout({ children }: { children: React.ReactNode }) {
 
           {/* 移动端菜单 */}
           <MobileMenu />
-
-          {/* 浮动技术栈按钮（在没有右侧边栏的情况下显示） */}
-          <FloatingTechStack />
         </ThemeProvider>
       </body>
     </html>

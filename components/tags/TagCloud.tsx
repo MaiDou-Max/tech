@@ -6,12 +6,11 @@ import { motion } from 'framer-motion';
 
 interface TagCloudProps {
   tags: string[];
-  colors: string[];
 }
 
 const TAG_SIZES = ['text-base', 'text-lg', 'text-sm', 'text-xl', 'text-base', 'text-lg'];
 
-export default function TagCloud({ tags, colors }: TagCloudProps) {
+export default function TagCloud({ tags }: TagCloudProps) {
   return (
     <div className="relative flex flex-wrap justify-center gap-3">
       {tags.map((tag, index) => {

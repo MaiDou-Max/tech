@@ -121,4 +121,3 @@ export default function FloatingSidebar({ postData, allPosts }: FloatingSidebarP
     </>
   );
 }
-

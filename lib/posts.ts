@@ -11,14 +11,21 @@ export type PostMetadata = {
   description: string;
   category: string;
   tags: string[];
+  cover?: string;
 };
 
 export function getSortedPostsData(): PostMetadata[] {
+  // 默认封面图片列表
+  const defaultCovers = [
+    '/pexels-gabin-cobret-430175667-32948694.jpg',
+    '/pexels-ninetysevenyears-34292519.jpg',
+  ];
+
   // 获取posts目录下的所有文件名
   const fileNames = fs.readdirSync(postsDirectory);
   const allPostsData = fileNames
     .filter(fileName => !fileName.endsWith('.draft'))
-    .map(fileName => {
+    .map((fileName, index) => {
       // 移除文件名中的".mdx"以获取id
       const id = fileName.replace(/\.md$/, '');
 
@@ -29,10 +36,12 @@ export function getSortedPostsData(): PostMetadata[] {
       // 使用gray-matter解析文章的元数据
       const matterResult = matter(fileContents);
 
-      // 合并数据与id
+      // 合并数据与id，如果没有封面则使用默认封面
+      const postData = matterResult.data as Omit<PostMetadata, 'id'>;
       return {
         id,
-        ...(matterResult.data as Omit<PostMetadata, 'id'>),
+        ...postData,
+        cover: postData.cover || defaultCovers[index % defaultCovers.length],
       };
     });
 

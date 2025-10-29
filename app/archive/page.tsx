@@ -1,5 +1,4 @@
 import { getSortedPostsData, getAllCategories, getAllTags } from '@/lib/posts';
-import ArchiveHero from '@/components/archive/ArchiveHero';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
 import ScrollToTop from '@/components/ScrollToTop';
@@ -13,7 +12,6 @@ export default function ArchivePage() {
   return (
     <>
       <Header />
-      <ArchiveHero />
       <section className="mb-12">
         <ArchiveContent posts={posts} categories={categories} tags={tags} />
       </section>

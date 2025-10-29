@@ -191,7 +191,7 @@ const PhysicsDrop: React.FC = () => {
   }
 
   return (
-    <div className="h-full flex items-center justify-center volantis-card overflow-hidden">
+    <div className="h-full flex items-center justify-center overflow-hidden">
       {/* Fixed size container - no scrolling */}
       <div className="relative flex-shrink-0" style={{ width: '278px', height: '590px' }}>
         <div
@@ -263,6 +263,9 @@ const PhysicsDrop: React.FC = () => {
                   alignItems: 'center',
                   justifyContent: 'center',
                   zIndex: 2,
+                  border: '1px solid var(--color-border)',
+                  backgroundColor: 'var(--color-card-bg)',
+                  boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
                 }}
               >
                 {body.icon}

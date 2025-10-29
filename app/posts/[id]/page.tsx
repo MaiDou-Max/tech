@@ -2,11 +2,6 @@ import { getAllPostIds, getPostData, getSortedPostsData } from '@/lib/posts';
 import ArticleHeader from '@/components/article/ArticleHeader';
 import ArticleFooter from '@/components/article/ArticleFooter';
 import ArticleContent from '@/components/article/ArticleContent';
-import CollapsibleTOC from '@/components/article/CollapsibleTOC';
-import CollapsibleSidebar from '@/components/article/CollapsibleSidebar';
-import FloatingTOC from '@/components/article/FloatingTOC';
-import FloatingSidebar from '@/components/article/FloatingSidebar';
-import ReadingProgress from '@/components/ReadingProgress';
 import remarkGfm from 'remark-gfm';
 import remarkFrontmatter from 'remark-frontmatter';
 import rehypePrettyCode from 'rehype-pretty-code';
@@ -42,7 +37,6 @@ export default async function Post({ params }: { params: { id: string } }) {
 
   return (
     <div className="min-h-screen bg-[var(--color-background)]">
-      <ReadingProgress />
 
       {/* Single column layout - only center content */}
       <div className="min-h-screen">
@@ -67,4 +61,3 @@ export default async function Post({ params }: { params: { id: string } }) {
     </div>
   );
 }
-

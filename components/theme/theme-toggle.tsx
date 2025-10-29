@@ -12,24 +12,24 @@ export function ThemeToggle() {
   }, []);
 
   if (!mounted) {
-    return <div className="w-10 h-10 rounded-lg bg-[var(--code-inline-bg)]" />;
+    return <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-[var(--code-inline-bg)]" />;
   }
 
   return (
     <button
       onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-      className="relative w-10 h-10 rounded-lg bg-[var(--code-inline-bg)] hover:bg-[var(--color-primary)]/20 transition-all duration-300 flex items-center justify-center group border border-[var(--color-border)] hover:border-[var(--color-primary)] hover:scale-110"
+      className="relative w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-[var(--code-inline-bg)] hover:bg-[var(--color-primary)]/20 transition-all duration-200 flex items-center justify-center group border border-[var(--color-border)] hover:border-[var(--color-primary)] hover:scale-110"
       aria-label="Toggle theme"
     >
       {theme === 'dark' ? (
         <IconMoon
-          size={20}
-          className="text-[var(--color-primary)] group-hover:rotate-12 transition-transform duration-300"
+          size={18}
+          className="sm:w-5 sm:h-5 text-[var(--color-primary)] group-hover:rotate-12 transition-transform duration-200"
         />
       ) : (
         <IconSun
-          size={20}
-          className="text-[var(--color-primary)] group-hover:rotate-90 transition-transform duration-300"
+          size={18}
+          className="sm:w-5 sm:h-5 text-[var(--color-primary)] group-hover:rotate-90 transition-transform duration-200"
         />
       )}
     </button>
