@@ -7,7 +7,7 @@ import CategoryDetailHeader from '@/components/categories/CategoryDetailHeader';
 // 生成所有分类的静态路径
 export async function generateStaticParams() {
   const categories = getAllCategories();
-  return categories.map((category) => ({
+  return categories.map(category => ({
     category: category,
   }));
 }

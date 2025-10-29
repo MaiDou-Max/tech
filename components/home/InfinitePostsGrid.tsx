@@ -48,7 +48,6 @@ const itemVariants: Variants = {
   },
 };
 
-
 const loaderVariants: Variants = {
   hidden: { opacity: 0, scale: 0.7, y: 30 },
   visible: {

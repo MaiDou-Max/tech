@@ -13,7 +13,10 @@ interface UnifiedSidebarProps {
   variant?: 'desktop' | 'mobile';
 }
 
-export default function UnifiedSidebar({ className = '', variant = 'desktop' }: UnifiedSidebarProps) {
+export default function UnifiedSidebar({
+  className = '',
+  variant = 'desktop',
+}: UnifiedSidebarProps) {
   const router = useRouter();
   const [posts, setPosts] = useState<PostMetadata[]>([]);
 
@@ -36,7 +39,9 @@ export default function UnifiedSidebar({ className = '', variant = 'desktop' }: 
   }, [posts]);
 
   return (
-    <aside className={`h-full rounded-3xl shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden relative volantis-glass ${className}`}>
+    <aside
+      className={`h-full rounded-3xl shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden relative volantis-glass ${className}`}
+    >
       {/* Animated background with gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-primary)]/5 via-transparent to-[var(--color-secondary)]/5" />
 
@@ -156,4 +161,3 @@ export default function UnifiedSidebar({ className = '', variant = 'desktop' }: 
     </aside>
   );
 }
-

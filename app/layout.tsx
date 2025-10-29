@@ -62,6 +62,7 @@ function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       className={clsx(
         'font-sans', // 默认字体
         handwriting.variable,
@@ -72,7 +73,10 @@ function RootLayout({ children }: { children: React.ReactNode }) {
         dancingScript.variable
       )}
     >
-      <body className="bg-[var(--color-background)] transition-colors duration-300 overflow-x-hidden relative">
+      <body
+        suppressHydrationWarning
+        className="bg-[var(--color-background)] transition-colors duration-300 overflow-x-hidden relative"
+      >
         <ThemeProvider attribute="data-mode" defaultTheme="dark">
           {/* 响应式三栏布局 */}
           <div className="flex min-h-screen max-w-[1920px] mx-auto px-3 sm:px-4 lg:px-6 gap-3 lg:gap-4 relative z-10">

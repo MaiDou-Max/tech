@@ -22,8 +22,8 @@ const config = {
       boxShadow: {
         card: '0 2px 12px rgba(0, 0, 0, 0.06)',
         hoverCard: '0 12px 32px rgba(59, 130, 246, 0.15)',
-        'blue': '0 8px 24px rgba(59, 130, 246, 0.25)',
-        'pink': '0 8px 24px rgba(244, 114, 182, 0.25)',
+        blue: '0 8px 24px rgba(59, 130, 246, 0.25)',
+        pink: '0 8px 24px rgba(244, 114, 182, 0.25)',
       },
       typography: {
         DEFAULT: {

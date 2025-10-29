@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
+import { getAssetPath } from './utils';
 
 const postsDirectory = path.join(process.cwd(), 'posts');
 
@@ -17,8 +18,8 @@ export type PostMetadata = {
 export function getSortedPostsData(): PostMetadata[] {
   // 默认封面图片列表
   const defaultCovers = [
-    '/pexels-gabin-cobret-430175667-32948694.jpg',
-    '/pexels-ninetysevenyears-34292519.jpg',
+    getAssetPath('/pexels-gabin-cobret-430175667-32948694.jpg'),
+    getAssetPath('/pexels-ninetysevenyears-34292519.jpg'),
   ];
 
   // 获取posts目录下的所有文件名

@@ -136,7 +136,8 @@ export function FontToggle() {
               <div
                 className={`text-2xl font-bold ${font.className}`}
                 style={{
-                  color: currentFont === font.id ? 'var(--color-primary)' : 'var(--color-text-muted)',
+                  color:
+                    currentFont === font.id ? 'var(--color-primary)' : 'var(--color-text-muted)',
                 }}
               >
                 {font.preview}

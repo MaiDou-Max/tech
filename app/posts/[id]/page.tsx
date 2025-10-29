@@ -37,7 +37,6 @@ export default async function Post({ params }: { params: { id: string } }) {
 
   return (
     <div className="min-h-screen bg-[var(--color-background)]">
-
       {/* Single column layout - only center content */}
       <div className="min-h-screen">
         {/* Center Content Area - Main article */}
