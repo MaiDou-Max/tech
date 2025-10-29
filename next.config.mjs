@@ -16,6 +16,7 @@ const nextConfig = {
   },
   basePath: '/tech',
   assetPrefix: '/tech/',
+  output: 'export',
 };
 
 export default widthMdx(nextConfig);
