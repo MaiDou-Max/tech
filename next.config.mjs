@@ -14,6 +14,8 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+  basePath: '/tech',
+  assetPrefix: '/tech/',
 };
 
 export default widthMdx(nextConfig);

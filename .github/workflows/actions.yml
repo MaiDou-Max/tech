@@ -1,0 +1,43 @@
+name: Deploy Blog to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 获取代码
+        uses: actions/checkout@v4
+
+      - name: 设置Node环境
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: 安装pnpm
+        uses: pnpm/action-setup@v2
+        id: pnpm-install
+        with:
+          version: 8
+          run_install: true
+
+      - name: 安装依赖
+        run: pnpm install
+
+      - name: 构建
+        run: |
+            pnpm build
+            touch out/.nojekyll
+
+      - name: 部署到GitHub Pages
+        uses:  JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages
+          folder: out
+          clean: true
